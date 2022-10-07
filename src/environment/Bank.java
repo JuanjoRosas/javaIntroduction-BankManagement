@@ -27,30 +27,45 @@ public class Bank {
     private ArrayList<CheckingAccount> accounts;
 
     //CONSTRUCTOR-----------------------------------
+    /*
+     *  Initialize bank with customers and accounts empty 
+     */
     public Bank(){
         customers = new ArrayList<>();
         accounts = new ArrayList<>();
     }
 
     //METHODS-----------------------------------------
-    /*
-     * Creates a new customer and adds it to list
+    //Getters
+    /**
+     * Returns the accounts list.
+     * @return accounts list.
      */
-    public void createCustomer(String pFirstName, String pMiddleName, String pLastName, String pSocialNumber){
-        Person addPerson = new Person(pFirstName, pMiddleName, pLastName, pSocialNumber);
-        customers.add(addPerson);
+    public ArrayList<CheckingAccount> getAccounts() {
+        return accounts;
     }
 
-    /*
-     * Adds an account to list
+    //Other methods
+    /**
+     * Adds customer pPerson to list.
+     * @param pPerson customer to add.
+     */
+    public void addCustomer(Person pPerson){
+        customers.add(pPerson);
+    }
+
+    /**
+     * Adds account pAccount to list.
+     * @param pAccount account to add.
      */
     public void addAccount(CheckingAccount pAccount){
         accounts.add(pAccount);
     }
     
-    /*
-     * Search for a customer by its social security number.
-     * If it is not found returns null.
+    /**
+     * Looks for a customer by its number.
+     * @param pNumber social security number of customer user is looking for.
+     * @return A customer with social security number pNumber. Null if it is not found.
      */
     public Person searchCustomer(String pNumber){
         Person found = null;
@@ -64,9 +79,10 @@ public class Bank {
         return found;
     }
 
-    /*
-     * Search for an account by its number.
-     * If it is not found returns null.
+    /**
+     * Looks for an account by its number.
+     * @param pNumber number of account user is looking for.
+     * @return An account with number pNumber. Null if it is not found.
      */
     public CheckingAccount searchAccount(String pNumber){
         CheckingAccount found = null;

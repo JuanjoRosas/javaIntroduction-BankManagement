@@ -54,8 +54,9 @@ public class CheckingAccount {//Represents an account oppened in Bank.
     /*
      * Increments value of ammount by pAmmount
      */
-    public void deposit(double pAmmount){
+    public double deposit(double pAmmount){
         ammount += pAmmount;
+        return ammount;
     }
 
     /*
